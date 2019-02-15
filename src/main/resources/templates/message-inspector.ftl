@@ -96,7 +96,9 @@
             <span class="label label-default">Compression:</span> ${msg.compressionCodec}
             <div>
             <a href="#" class="toggle-msg"><i class="fa fa-chevron-circle-right">&nbsp;</i></a>
-            <pre class="message-body">${msg.message!''}</pre>
+                <!--  This line is to make sure the data is escaped properly so it will be shown as xml -->
+                <#outputformat "XML"><#assign xmlMO>${msg.message}</#assign></#outputformat>
+            <pre class="message-body">${xmlMO}</pre>
             </div>
         </div>
     </#list>
